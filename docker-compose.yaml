@@ -1,22 +1,22 @@
 services:
   01_pms_server_service:
-    build: ./server
+    build: ./Server
     container_name: 01_pms_server_compose_container
     restart: always
     env_file:
-      - ./server/.env
+      - ./Server/.env
     ports:
       - 4500:4500
 
   01_pms_client_service:
     build:
-      context: ./client
+      context: ./Client
       args:
         VITE_REACT_API_URL: http://16.112.189.21:4500
     container_name: 01_pms_client_compose_container
     restart: always
     env_file:
-      - ./client/.env
+      - ./Client/.env
     ports:
       - 3000:3000
     depends_on:
