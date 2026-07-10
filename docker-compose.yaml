@@ -9,7 +9,10 @@ services:
       - 4500:4500
 
   01_pms_client_service:
-    build: ./client
+    build:
+      context: ./client
+      args:
+        VITE_REACT_API_URL: http://16.112.189.21:4500
     container_name: 01_pms_client_compose_container
     restart: always
     env_file:
