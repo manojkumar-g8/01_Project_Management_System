@@ -19,23 +19,23 @@ jobs:
           node-version: 24
 
       - name: Install server dependencies
-        working-directory: ./server
+        working-directory: ./Server
         run: npm ci
 
       - name: Lint server
-        working-directory: ./server
+        working-directory: ./Server
         run: npm run lint -- --max-warnings=0
 
       - name: Install client dependencies
-        working-directory: ./client
+        working-directory: ./Client
         run: npm ci
 
       - name: Lint client
-        working-directory: ./client
+        working-directory: ./Client
         run: npm run lint -- --max-warnings=0
 
       - name: Build server Docker image
-        run: docker build -t 01_pms_server_docker_image ./server
+        run: docker build -t 01_pms_server_docker_image ./Server
 
       - name: Build client Docker image
-        run: docker build -t 01_pms_client_docker_image ./client
+        run: docker build -t 01_pms_client_docker_image ./Client
