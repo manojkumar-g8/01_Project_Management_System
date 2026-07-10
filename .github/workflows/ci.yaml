@@ -1,4 +1,4 @@
-name: pms_ci_cd
+name: 01_pms_ci_cd
 
 on:
   push:
@@ -19,19 +19,19 @@ jobs:
           node-version: 24
 
       - name: Install server dependencies
-        working-directory: server
+        working-directory: ./server
         run: npm ci
 
       - name: Lint server
-        working-directory: server
+        working-directory: ./server
         run: npm run lint -- --max-warnings=0
 
       - name: Install client dependencies
-        working-directory: client
+        working-directory: ./client
         run: npm ci
 
       - name: Lint client
-        working-directory: client
+        working-directory: ./client
         run: npm run lint -- --max-warnings=0
 
       - name: Build server Docker image
