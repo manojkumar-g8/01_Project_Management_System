@@ -15,7 +15,6 @@ services:
         VITE_REACT_API_URL: http://16.112.189.21:4500
     container_name: 01_pms_client_compose_container
     restart: always
-
     ports:
       - 3000:3000
     depends_on:
