@@ -1,0 +1,20 @@
+services:
+  01_pms_server_service:
+    build: ./server
+    container_name: 01_pms_server_compose_container
+    restart: always
+    env_file:
+      - ./server/.env
+    ports:
+      - 4500:4500
+
+  01_pms_client_service:
+    build: ./client
+    container_name: 01_pms_client_compose_container
+    restart: always
+    env_file:
+      - ./client/.env
+    ports:
+      - 3000:3000
+    depends_on:
+      - 01_pms_server_service
