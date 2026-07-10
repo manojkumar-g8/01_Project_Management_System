@@ -6,7 +6,7 @@ services:
     env_file:
       - ./Server/.env
     ports:
-      - 4500:4500
+      - "4500:4500"
 
   01_pms_client_service:
     build:
@@ -16,6 +16,6 @@ services:
     container_name: 01_pms_client_compose_container
     restart: always
     ports:
-      - 3000:3000
+      - "3000:3000"
     depends_on:
       - 01_pms_server_service
