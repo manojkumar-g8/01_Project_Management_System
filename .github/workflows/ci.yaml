@@ -28,7 +28,7 @@ jobs:
 
       - name: Install client dependencies
         working-directory: ./Client
-        run: npm ci
+        run: npm i
 
       - name: Lint client
         working-directory: ./Client
