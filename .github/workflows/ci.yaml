@@ -66,6 +66,8 @@ jobs:
           ssh -i ec2_key.pem ${EC2_USER}@${EC2_HOST} << EOF
             set -e
             cd "${EC2_APP_DIR}" || exit 1
+
+            sudo ls
             
             # fetch latest code
             git fetch --all
