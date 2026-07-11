@@ -66,16 +66,18 @@ jobs:
           ssh -i ec2_key.pem ${EC2_USER}@${EC2_HOST} << EOF
             set -e
             cd "${EC2_APP_DIR}" || exit 1
+
+            ls -a ${EC2_APP_DIR}
             
-          # fetch latest code
-          git fetch --all
-          git reset --hard origin/main
+            # fetch latest code
+            git fetch --all
+            git reset --hard origin/main
 
-          # rebuild containers
-          docker compose up -d --build
+            # rebuild containers
+            docker compose up -d --build
 
-          # clean old images
-          docker image prune -f
+            # clean old images
+            docker image prune -f
 
-          docker compose ps
-          EOF
+            docker compose ps
+            EOF
