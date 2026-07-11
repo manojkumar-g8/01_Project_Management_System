@@ -63,15 +63,9 @@ jobs:
           EC2_USER: ${{ secrets.EC2_USER }}
           EC2_APP_DIR: ${{ secrets.EC2_APP_DIR }}
         run: |
-          ssh -i ec2_key.pem ${EC2_USER}@${EC2_HOST} << 'EOF'
+          ssh -i ec2_key.pem ${EC2_USER}@${EC2_HOST} << EOF
             set -e
             cd "${EC2_APP_DIR}" || exit 1
-
-            if [ ! -d ".git" ]; then
-              git clone https://github.com/manojkumar-g8/01_Project_Management_System.git repo
-            fi
-
-            cd repo
             
             # fetch latest code
             git fetch --all
