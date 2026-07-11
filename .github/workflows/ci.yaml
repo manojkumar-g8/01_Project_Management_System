@@ -68,8 +68,10 @@ jobs:
             cd "${EC2_APP_DIR}" || exit 1
 
             if [ ! -d ".git" ]; then
-              git clone https://github.com/manojkumar-g8/01_Project_Management_System.git .
+              git clone https://github.com/manojkumar-g8/01_Project_Management_System.git repo
             fi
+
+            cd repo
             
             # fetch latest code
             git fetch --all
