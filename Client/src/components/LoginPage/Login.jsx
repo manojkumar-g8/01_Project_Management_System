@@ -26,7 +26,7 @@ const Login = () => {
                 }}
                 className="p-2"
             >
-                <h5>Admin</h5>
+                <h5>Admin Credentials</h5>
                 <p>Email: admin@mail.com</p>
                 <p>Password: 123456</p>
             </div>
